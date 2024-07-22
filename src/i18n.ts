@@ -14,7 +14,7 @@ i18n.use(initReactI18next).init({
     },
   },
   lng: navigator.language.split("-")[0],
-  fallback: "en",
+  fallbackLng: "en", 
   interpolation: {
     escapeValue: false,
   },
