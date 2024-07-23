@@ -78,7 +78,7 @@ function App() {
             <span>{t("projects")}:</span> {t("projects desc")}
           </p>
           <p>
-            <span>{t("soft skills")}:</span> {t("soft skills dec")}
+            <span>{t("soft skills")}:</span> {t("soft skills desc")}
           </p>
           <p>
             <span>{t("other")}:</span> {t("other desc")}
