@@ -41,6 +41,13 @@
   margin-bottom: 10px;
 }
 
+p>span {
+  font-weight: bold;
+  color: #914bfb;
+}
+ul>li::marker{
+  color: #8f44fd;
+}
 @media (max-width: 768px) {
   .content {
     flex-direction: column;

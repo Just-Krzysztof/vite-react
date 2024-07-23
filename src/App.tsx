@@ -1,13 +1,22 @@
 import { useTranslation } from "react-i18next";
 import "./App.css";
 import { changeLanguage } from "i18next";
+import { useEffect } from "react";
 
 function App() {
   const { t, i18n } = useTranslation();
 
-   const handleLanguageChange = (lang: string) => {
-     changeLanguage(lang);
-   };
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem("langage");
+    if (savedLanguage) {
+      changeLanguage(savedLanguage);
+    }
+  }, []);
+
+  const handleLanguageChange = (lang: string) => {
+    changeLanguage(lang);
+    localStorage.setItem("langage", lang);
+  };
 
   return (
     <div className="App">
@@ -17,10 +26,11 @@ function App() {
         </div>
 
         <div className="language-swithcer">
-          {" "}
           <button
             onClick={() =>
-              handleLanguageChange(i18n.language === "en" ? "pl" : "en")
+              handleLanguageChange(
+                i18n.language === "en"? "pl" : "en"
+              )
             }
           >
             {i18n.language === "en" ? "Polish" : "English"}
@@ -31,123 +41,127 @@ function App() {
       <div className="content">
         <div className="sidebar">
           <h2>Krzysztof Just</h2>
-          <p>{t('email')}: krzysztofjustjust@gmail.com</p>
-          <p>Phone: +48 511 008 612</p>
-          <p>Location: Gdynia</p>
-          <h2>Languages</h2>
-          <p>English: Intermediate</p>
-          <p>Polish: Native</p>
-          <h2>Skills</h2>
-          <p>Programming Languages: JavaScript, TypeScript, Python</p>
-          <p>Frameworks: Vue.js, React.js, Django</p>
-          <p>Front-End Technologies: CSS, SCSS</p>
-          <p>API: RESTful API</p>
-          <p>Projects: Marketplace Development</p>
-          <p>Soft Skills: Social communication, teamwork</p>
-          <p>Other: Quick and efficient learning</p>
+          <p>
+            <span>{t("email")}:</span>
+            <a href="mailto:krzysztofjustjust@gmail.com">
+              krzysztofjustjust@gmail.com
+            </a>
+          </p>
+          <p>
+            <span>{t("phone")}:</span> +48 511 008 612
+          </p>
+          <p>
+            <span>{t("location")}:</span> Gdynia, {t("")}
+          </p>
+          <h2>{t("languages")}</h2>
+          <p>
+            {t("english")}:<span> {t("intermediate")}</span>
+          </p>
+          <p>
+            {t("polish")}: <span>{t("native")}</span>
+          </p>
+          <h2>{t("skills")}</h2>
+          <p>
+            <span>{t("programming languages")}:</span> JavaScript, TypeScript,
+            Python
+          </p>
+          <p>
+            <span>{t("frameworks")}:</span> Vue.js, React.js, Django
+          </p>
+          <p>
+            <span>{t("front-end technologies")}:</span> CSS, SCSS
+          </p>
+          <p>
+            <span>API:</span> RESTful API
+          </p>
+          <p>
+            <span>{t("projects")}:</span> {t("projects desc")}
+          </p>
+          <p>
+            <span>{t("soft skills")}:</span> {t("soft skills dec")}
+          </p>
+          <p>
+            <span>{t("other")}:</span> {t("other desc")}
+          </p>
         </div>
         <div className="main-content">
-          <h2>Professional Summary</h2>
+          <h2>{t("professional summary")}</h2>
           <p>
-            I am a Front-End Developer with 2 years of experience in Vue.js,
-            CSS, JavaScript, and TypeScript. I work on creative projects,
-            enhancing my technical skills. Previously, I was an instructor in
-            programming and robotics, gaining satisfaction and experience in
-            education. I am currently learning React and Python with Django,
-            aiming for full-stack development and advanced projects.
+            <i>{t("i am")}</i>
           </p>
-          <h2>Professional Experience</h2>
-          <h3>Frontend Developer</h3>
-          <p>Rząska Poland, Gdynia</p>
-          <p>November 2022 – Present</p>
+          <h2>{t("professional experience")}</h2>
+          <h3>{t("frontend developer")}</h3>
+          <p>Rząska Poland, Gdynia, {t("poland")}</p>
+          <p>
+            {t("november")} 2022 – {t("present")}
+          </p>
           <ul>
-            <li>
-              Developed and maintained web applications using Nuxt.js (versions
-              2 and 3) with TypeScript and JavaScript.
-            </li>
-            <li>Integrated REST APIs and collaborated with backend teams.</li>
-            <li>Designed interactive user interfaces using Figma.</li>
-            <li>
-              Developed and maintained a marketplace platform, ensuring its
-              stability and performance.
-            </li>
-            <li>
-              Optimized applications for SEO and search engine performance.
-            </li>
+            <li>{t("working with")}</li>
+            <li>{t("integration")}</li>
+            <li>{t("design")}</li>
+            <li>{t("performance")}</li>
+            <li>{t("optymalized")}</li>
           </ul>
-          <h3>Programming and Robotics Instructor</h3>
-          <p>Academy Spice Gears, Łomża</p>
-          <p>March 2021 – November 2022</p>
+          <h3>{t("kids")}</h3>
+          <p>Academy Spice Gears, Łomża, {t("poland")}</p>
+          <p>
+            {t("march")} 2021 – {t("november")} 2022
+          </p>
           <ul>
-            <li>
-              Conducted programming classes in Scratch and Python for children
-              aged 6-16.
-            </li>
-            <li>
-              Introduced participants to basic robotics, fostering their
-              interest in technology.
-            </li>
-            <li>
-              Communicated effectively with children and their parents,
-              supporting the development of technical and social skills.
-            </li>
-            <li>Created a friendly and engaging educational environment.</li>
+            <li>{t("technology")}</li>
+            <li>{t("introduced")}</li>
+            <li>{t("communicated")}</li>
+            <li>{t("environment")}</li>
           </ul>
-          <h3>Frontend Developer Intern</h3>
-          <p>Transition Technologies MS S.A., Koszalin</p>
-          <p>July 2022 – September 2022</p>
+          <h3>{t("intern")}</h3>
+          <p>Transition Technologies MS S.A., Koszalin, {t("poland")}</p>
+          <p>
+            {t("july")}2022 – {t("eptember")}2022
+          </p>
           <ul>
-            <li>
-              Enhanced teamwork skills through participation in projects using
-              Git and GitLab.
-            </li>
-            <li>Developed applications using Angular and TypeScript.</li>
-            <li>
-              Collaborated with other departments to implement new features.
-            </li>
+            <li>{t("gitlab")}</li>
+            <li>{t("angular")}</li>
+            <li>{t("implement")}</li>
           </ul>
-          <h3>Graphic Intern</h3>
-          <p>Logo s.c., Łomża</p>
-          <p>March 2022 – July 2022</p>
+          <h3>{t("graphic intern")}</h3>
+          <p>Logo s.c., Łomża, {t("poland")}</p>
+          <p>
+            {t("march")} 2022 – {t("july")} 2022
+          </p>
           <ul>
-            <li>Skills acquired: Illustrator, Photoshop</li>
+            <li>{t("skills acquired")}: Illustrator, Photoshop</li>
           </ul>
-          <h2>Education</h2>
-          <p>Academy of Applied Sciences in Łomża</p>
-          <p>October 2019 – February 2023</p>
-          <p>Bachelor's in Computer Science, Specialization in Programming</p>
-          <h2>Courses and Certifications</h2>
-          <p>JavaScript – The Only Course You Need</p>
-          <p>Organizer: Mateusz Maj, January 2022</p>
-          <p>E.14 Developing web applications and databases</p>
-          <p>January 2019</p>
-          <p>E.13 Designing local computer networks</p>
-          <p>May 2018</p>
-          <p>E.12 Assembly and operation of personal computers</p>
-          <p>May 2017</p>
-          <h2>Additional Activities</h2>
-          <p>Member of the Presidium</p>
+          <h2>{t("education")}</h2>
           <p>
-            Academy of Applied Sciences in Łomża, October 2020 – October 2021
-          </p>
-          <h2>Interests</h2>
-          <p>
-            Meeting People: Enjoy meeting new people and exploring different
-            cultures. Social interactions inspire me and broaden my knowledge.
+            Państwowa Wyższa Szkoła Informatyki i Przedsiębiorczości w Łomży,{" "}
+            {t("poland")}
           </p>
           <p>
-            Long Conversations: Love engaging in deep conversations on various
-            topics, which allows me to expand my horizons.
+            {t("october")} 2019 – {t("february")} 2023
           </p>
+          <p>{t("computer science")}</p>
+          <h2>{t("courses and certifications")}</h2>
+          <p>JavaScript – Jedyny kurs jakiego potrzebujesz</p>
           <p>
-            Traveling: Passionate about discovering new places and cultures.
-            Each journey is an opportunity to learn and connect with local
-            communities.
+            {t("organizer")}: Mateusz Maj, {t("january")} 2022
           </p>
+          <p>{t("e14")}</p>
+          <p>{t("january")} 2019</p>
+          <p>{t("e13")}</p>
+          <p>{t("may")} 2018</p>
+          <p>{t("e12")}</p>
+          <p> {t("may")}2017</p>
+          <h2>{t("activities")}</h2>
+          <p>{t("presidium")}</p>
           <p>
-            Automotive: Fascinated by the history of machines and vehicles.
-            Enjoy discussions with experts and enthusiasts in the field.
+            Państwowa Wyższa Szkoła Informatyki i Przedsiębiorczości w Łomży,{" "}
+            {t("october")} 2020 – {t("october")} 2021
           </p>
+          <h2>{t("interests")}</h2>
+          <p>{t("interests p1")}</p>
+          <p>{t("interests p2")}</p>
+          <p>{t("interests p3")}</p>
+          <p>{t("interests p4")}</p>
         </div>
       </div>
     </div>
