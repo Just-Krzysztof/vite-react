@@ -59,6 +59,16 @@ function Sidebar() {
         <span>{t("other")}: </span>
         {t("other desc")}
       </p>
+      <h2>{t("social media")}</h2>
+      <p>
+        <a
+          href="https://www.linkedin.com/in/krzysztof-just-191361226/"
+          target="_blank"
+          rel="Linkedin profile"
+        >
+          Linkedin
+        </a>
+      </p>
     </div>
   );
 }
