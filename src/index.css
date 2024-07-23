@@ -13,10 +13,16 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
+/* a {
   font-weight: 500;
   color: rgba(255, 255, 255, 0.87);
   text-decoration: inherit;
+} */
+ a {
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.87);
+  text-decoration: inherit;
+  animation: pulse 2s infinite;
 }
 a:hover {
   color: rgba(255, 255, 255, 1);
@@ -68,5 +74,17 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.87);
+  }
+  50% {
+    text-shadow: 0 0 10px #8f44fd;
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.87);
   }
 }
