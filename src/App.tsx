@@ -39,7 +39,7 @@ function App() {
 
       <div className="content">
         <Sidebar></Sidebar>
-        
+
         <div className="main-content">
           <h2>{t("professional summary")}</h2>
           <p>
@@ -105,19 +105,25 @@ function App() {
           </p>
           <p>{t("computer science")}</p>
           <h2>{t("courses and certifications")}</h2>
-          <p>JavaScript – Jedyny kurs jakiego potrzebujesz</p>
-          <p>
-            {t("organizer")}: Mateusz Maj, <span>{t("january")} 2022</span>
+          <ul>
+            <li>JavaScript – Jedyny kurs jakiego potrzebujesz</li>
+            <li>{t("e14")}</li>
+            <li>{t("e13")}</li>
+            <li>{t("e12")}</li>
+          </ul>
+          {/* <p>
+            <span>JavaScript – Jedyny kurs jakiego potrzebujesz, </span>
+            {t("organizer")}: Mateusz Maj
+          </p> */}
+          {/* <p>
+            <span> {t("e14")}</span>
           </p>
           <p>
-            {t("e14")}, <span>{t("january")} 2019</span>
+            <span>{t("e13")}</span>
           </p>
           <p>
-            {t("e13")}, <span>{t("may")} 2018</span>
-          </p>
-          <p>
-            {t("e12")}, <span>{t("may")} 2017</span>
-          </p>
+            <span>{t("e12")}</span>
+          </p> */}
           <h2>{t("interests")}</h2>
           <p>
             <span>{t("interests p1")}: </span>

@@ -6,7 +6,7 @@ function Sidebar() {
 
   return (
     <div className="sidebar">
-      <h2>Krzysztof Just</h2>
+      <h2 className="sidebar-name">Krzysztof Just</h2>
       <p>
         <span>{t("email")}: </span>
         <a href="mailto:krzysztofjustjust@gmail.com">

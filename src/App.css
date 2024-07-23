@@ -27,10 +27,12 @@
 
 .sidebar {
   flex: 1 1 20%;
-  padding: 10px;
+  padding: 0 10px 10px;
   border-right: 1px solid #ccc;
 }
-
+.sidebar-name {
+  font-size: 32px;
+}
 .main-content {
   flex: 1 1 80%;
   padding: 10px;
@@ -63,6 +65,9 @@ ul > li::marker {
   .sidebar {
     border-right: none;
     border-bottom: 1px solid #ccc;
+  }
+  .sidebar-name {
+    text-align: center;
   }
 
   .main-content {
