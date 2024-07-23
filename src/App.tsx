@@ -31,7 +31,7 @@ function App() {
       <div className="content">
         <div className="sidebar">
           <h2>Krzysztof Just</h2>
-          <p>Email: krzysztofjustjust@gmail.com</p>
+          <p>{t('email')}: krzysztofjustjust@gmail.com</p>
           <p>Phone: +48 511 008 612</p>
           <p>Location: Gdynia</p>
           <h2>Languages</h2>
