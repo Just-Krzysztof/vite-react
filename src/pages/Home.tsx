@@ -3,6 +3,7 @@ import "../App.css";
 import { changeLanguage } from "i18next";
 import { useEffect } from "react";
 import Sidebar from "../components/Sidebar";
+import { Link } from "react-router-dom";
 
 function Home() {
   const { t, i18n } = useTranslation();
@@ -25,7 +26,7 @@ function Home() {
         <div>
           <h1>Curriculum Vitae</h1>
         </div>
-
+        <Link to="portfolio" className="background-color">Portfolio</Link>
         <div className="language-swithcer">
           <button
             onClick={() =>
